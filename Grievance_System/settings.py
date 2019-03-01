@@ -14,7 +14,7 @@ SECRET_KEY = 'd!dom0bnas_$csrnmpd@gx==t6l_b++2#r@x=-7i=%^fs$brd!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'grievancesystem,herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'grievancesystem.herokuapp.com']
 
 
 # Application definition
@@ -70,10 +70,10 @@ WSGI_APPLICATION = 'Grievance_System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'grievance',
-        'USER':'postgres',
-        'PASSWORD':'techlab',
-        'HOST':'localhost',
+        'NAME': 'ddgphbqn5irif',
+        'USER':'yuvdkyhxoeskcf',
+        'PASSWORD':'be9d9a5a3199c744de91d2ccfd20ab8c8677322d204ed3ca4d970d3409e650c1',
+        'HOST':'ec2-54-235-134-25.compute-1.amazonaws.com',
         'PORT':'5432',
     }
 }

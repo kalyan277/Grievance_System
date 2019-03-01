@@ -1,0 +1,240 @@
+{% extends 'basic.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<style media="screen">
+  .blue { color: #185875; }
+  body{
+  	 background: url(https://images.pexels.com/photos/1930310/pexels-photo-1930310.jpeg?cs=srgb&dl=abstract-abstract-painting-acrylic-1930310.jpg&fm=jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family:'HelveticaNeue','Arial', sans-serif;
+
+  }
+  a{color:#58bff6;text-decoration: none;}
+  a:hover{color:#aaa; }
+  .pull-right{float: right;}
+  .pull-left{float: left;}
+  .clear-fix{clear:both;}
+
+
+
+
+  #formWrapper{
+  	background: rgba(0,0,0,.2);
+  	width:100%;
+  	height:100%;
+  	position: absolute;
+  	top:0;
+  	left:0;
+  	transition:all .3s ease;}
+  .darken-bg{background: rgba(0,0,0,.5) !important; transition:all .3s ease;}
+
+  div#form{
+  	position: absolute;
+  	width:400px;
+  	height:450px;
+  	height:auto;
+  	background-color: #fff;
+  	margin:auto;
+  	border-radius: 5px;
+  	padding:20px;
+  	left:50%;
+  	top:50%;
+  	margin-left:-180px;
+  	margin-top:-150px;
+  }
+  div.form-item{position: relative; display: block; margin-bottom: 20px;}
+   input{transition: all .2s ease;}
+   input.form-style{
+  	color:#8a8a8a;
+  	display: block;
+  	width: 100%;
+  	height: 44px;
+    display: flex;
+  	padding: 5px 5%;
+  	border:1px solid #ccc;
+  	-moz-border-radius: 27px;
+  	-webkit-border-radius: 27px;
+  	border-radius: 27px;
+  	-moz-background-clip: padding;
+  	-webkit-background-clip: padding-box;
+  	background-clip: padding-box;
+  	background-color: #fff;
+  	font-family:'HelveticaNeue','Arial', sans-serif;
+  	font-size: 120%;
+  	letter-spacing: .8px;
+  }
+  div.form-item .form-style:focus{outline: none; border:1px solid #58bff6; color:#58bff6; }
+  div.form-item p.formLabel {
+  	position: absolute;
+  	left:26px;
+  	top:2px;
+  	transition:all .4s ease;
+  	color:#bbb;}
+  .formTop{top:-22px !important; left:26px; background-color: #fff; padding:0 5px; font-size: 16px; color:#58bff6 !important;}
+  .formStatus{color:#8a8a8a !important;}
+  input[type="submit"].login{
+  	float:right;
+  	width: 135px;
+  	height: 45px;
+  	-moz-border-radius: 19px;
+  	-webkit-border-radius: 19px;
+  	border-radius: 19px;
+  	-moz-background-clip: padding;
+  	-webkit-background-clip: padding-box;
+  	background-clip: padding-box;
+  	background-color: #55b1df;
+  	border:1px solid #55b1df;
+  	border:none;
+  	color: #fff;
+  	font-weight: bold;
+  }
+  input[type="submit"].login:hover{background-color: #fff; border:1px solid #55b1df; color:#55b1df; cursor:pointer;}
+  input[type="submit"].login:focus{outline: none;}
+</style>
+
+
+<!-- <link rel="stylesheet" href="{% static 'css/basefile.css' %}"> -->
+
+
+
+<body>
+<form method="post" method="POST" action="{% url 'log' %}">
+<div id="formWrapper">
+    {% csrf_token %}
+
+<div id="form">
+<div class="logo" style ="text-align: center;color: #0383ae; margin-top:10px; font-size: 25px;">
+  <b>Log Complain</b>
+  {% if error %}
+     <li class="error-message">{{ error}}</li>
+  {% endif %}
+  <br>
+</div>
+<br>
+
+		<div class="form-item">
+			<p class="formLabel">Name</p>
+			<input type="text" name="name" id="name" class="form-style" autocomplete="off"  style=" border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE;"/>
+		</div>
+    <div class="form-item">
+			<p class="formLabel">Grievance Title</p>
+			<input type="text" name="title" id="title" class="form-style" autocomplete="off"  style=" border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE;"/>
+			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+		</div>
+    <div class="form-item">
+			<p class="formLabel">Your Phone Number</p>
+			<input type="text" name="phone_number" id="phone_number" class="form-style" onkeypress="return numbersonly(event);" maxlength="10" autocomplete="off"  style=" border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE;" />
+			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+		</div>
+    <div class="form-item">
+      <select class="form-style" name="position" id="position" style=" border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE; -webkit-border-radius: 25px;
+          -moz-border-radius: 25px;
+          border-radius: 25px; height:42px;
+          width:360px;>
+  <option value="" style="color:#8a8a8a;">Your's Position</option>
+  <option value="CS">Computer Science</option>
+  <option value="M">Mechanical</option>
+  <option value="C">Civil</option>
+  <option value="E">ETC</option>
+  <option value="EE">Electrical Engginering</option>
+  <option value="F">Faculty</option>
+</select>
+			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+		</div>
+    <div class="form-item">
+      <select class="form-style" name="gender" id="gender" style=" border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE; -webkit-border-radius: 25px;
+          -moz-border-radius: 25px;
+          border-radius: 25px; height:42px;
+          width:360px;>
+  <option value="" style="color:#8a8a8a;">Gender</option>
+  <option value="M">Male</option>
+  <option value="F">Female</option>
+
+</select>
+      <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+    </div>
+    <div class="form-item">
+      <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+<textarea  name="content" id="conten" placeholder="Type your Message in details...." class="form-style"  style=" border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE; -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;" rows="6" cols="43" autocomplete="off" required ></textarea>
+		</div>
+		<div class="form-item">
+      		<p class="pull-left"><a href="{% url 'home' %}"><small>Back To The Home Screen!!<small></a></p>
+		<input type="submit" class="login pull-right" value="Log Complain " style="align: center;">
+		<div class="clear-fix"></div>
+		</div>
+</div>
+
+</div>
+</form>
+</body>
+<script type="text/javascript">
+  $(document).ready(function(){
+  	var formInputs = $('input[type="text"],input[type="textarea"]');
+  	formInputs.focus(function() {
+         $(this).parent().children('p.formLabel').addClass('formTop');
+         $('div#formWrapper').addClass('darken-bg');
+         $('div.logo').addClass('logo-active');
+  	});
+  	formInputs.focusout(function() {
+  		if ($.trim($(this).val()).length == 0){
+  		$(this).parent().children('p.formLabel').removeClass('formTop');
+  		}
+  		$('div#formWrapper').removeClass('darken-bg');
+  		$('div.logo').removeClass('logo-active');
+  	});
+  	$('p.formLabel').click(function(){
+  		 $(this).parent().children('.form-style').focus();
+  	});
+  });
+
+
+  function numbersonly(e){
+		var unicode=e.charCode? e.charCode : e.keyCode;
+		if (unicode!=8 && unicode!=9 && unicode!=46 && unicode != 45){ //if the key isn't the backspace key or TAB key (which we should allow)
+		if (unicode<48||unicode>57) //if not a number
+		return false //disable key press
+		}
+	}
+
+
+
+</script>
+</html>
+
+
+
+
+<!--
+    <fieldset>
+      <input placeholder="Your name" type="text" name="name" tabindex="1" autocomplete="off" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Grievance Title" type="text" name="title" tabindex="2" autocomplete="off" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" name="phone_number" tabindex="3" autocomplete="off" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your Message in details...."  name="content" tabindex="4" autocomplete="off" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset> -->
+
+
+<!-- section footer -->
+
+
+{% endblock %}

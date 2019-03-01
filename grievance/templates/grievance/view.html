@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <title>Grievance view</title>
+    <style media="screen">
+      .btn {
+        background-color:#24A91F;
+        border: none;
+        color: white;
+        max-width: 90px;
+        padding: 12px 16px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .btnn {
+        background-color:#8B0C1E;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 15px;
+        max-width: 100px;
+        cursor: pointer;
+      }
+
+
+      /* Darker background on mouse-over */
+      .btn:hover {
+        background-color: #06286E  ;
+      }
+      .btnn:hover {
+        background-color: #06286E  ;
+      }
+
+    </style>
+      {% load staticfiles %}
+
+    <link rel="stylesheet" href="{% static 'css/dashboad.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <h3 align="center" class="yellow">hello,{{request.user.username}}</h3>
+  <h1><span class="blue">&lt;</span>Grievance Record<span class="blue">&gt;</span> <span class="yellow">Verification</span></h1>
+  <br>
+  <h3 align="center" ><a class="yellow" href="{% url 'home' %}">Back To Home Screen</a><h3>
+
+
+  <table class="container" class="responsive-table" style="font-size: 90%; width: 100%" >
+    <thead>
+      <tr>
+        <th style="min-width:50px"><h1>Name</h1></th>
+        <th style="min-width:50px"><h1>Title</h1></th>
+        <th style="min-width:50px"><h1>Recieved Date</h1></th>
+        <th style="min-width:50px"><h1 style="text-align: center">Content</h1></th>
+        <th style="min-width:50px"><h1>Phone Number</h1></th>
+        <th style="align-text:center;min-width:50px"><h1>Action</h1></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for grievance in grievances.all %}
+      <tr>
+        <td style="min-width:120px">{{ grievance.Name}}</td>
+        <td style="min-width:140px">{{ grievance.title}}</td>
+        <td>{{ grievance.pub_date_pretty}}</td>
+        <td>{{ grievance.body}}</td>
+        <td style="min-width:140px">{{ grievance.phone_number}}</td>
+        <td style="min-width:140px">
+      <button class="btn" onclick="window.location = '{% url 'approve' grievance.id %}';"><i class="fa fa-check">Approve</i></button><br><br>
+      <button class="btnn" onclick="window.location = '{% url 'reject' grievance.id %}';"><i class="fa fa-window-close">Reject</i></button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  </body>
+
+</html>

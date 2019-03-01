@@ -1,0 +1,50 @@
+{% extends 'dashboad.html' %}
+
+{% block content %}
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<div class="row shop-tracking-status">
+
+    <div class="col-md-12">
+        <div class="well">
+            <h4>Grievance Statistic:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Grievance Received:</span>
+                    <span class="label label-success">{{grievances}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Grievance Pending:</span>
+                    <span class="label label-success">{{pending}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Grievance Resolved:</span>
+                    <span class="label label-success">{{resolve}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Grievance Rejected:</span>
+                    <span class="label label-success">{{reject}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Male Complain Received :</span>
+                    <span class="label label-success">{{male}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Total Number of Female Complain Received :</span>
+                    <span class="label label-success">{{female}}</span>
+                </li>
+            </ul>
+
+
+
+
+{% endblock %}

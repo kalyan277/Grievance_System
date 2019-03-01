@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Synergy Grievance System</title>
+
+    <!-- Bootstrap core CSS -->
+      <script src="https://code.jquery.com/jquery-3.2.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel ="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/basefile.css' %}">
+    <style media="screen">
+      .blue { color: #185875; }
+
+      @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+      html, body, .container {
+        width: 100%;
+        height: 100%;
+      }
+     .containers {
+        width: 100%;
+        height: 100%;
+
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav {
+        background-color: #efefef;
+        height: 50px;
+        box-sizing: border-box;
+        box-shadow: 0 5px 10px #000;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: top 0.15s ease-out, border-radius 0.15s ease-out;
+      }
+
+      .nav.active {
+        background-color: rgba(255, 255, 255, 0.8);
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        border-radius: 8px 5px;
+      }
+
+      .nav > ul {
+        width: 100%;
+        padding: 0 20px;
+        margin: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+      }
+
+      .nav > ul > li {
+        float: left;
+        display: inline-block;
+      }
+
+      .nav > ul > li > a {
+        color: #222;
+        font-family: Montserrat, sans-serif;
+        text-decoration: none;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        display: block;
+        text-shadow: 0 -1px #fff;
+        transition: background 0.15s ease;
+      }
+
+      .nav > ul > li > a:hover {
+        background-color: #dfdfdf;
+      }
+
+      .nav.active > ul > li > a:hover {
+        background-color: rgba(180, 180, 180, 0.7);
+      }
+
+      .bg {
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .bg > div {
+        color: white;
+        font-family: Montserrat, sans-serif;
+        text-align: center;
+        width: 100%;
+        padding: 30px;
+        text-shadow: 0 -1px #222;
+      }
+
+      #home {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/990824/pexels-photo-990824.jpeg?cs=srgb&dl=abstract-art-artistic-990824.jpg&fm=jpg);
+      }
+      #about {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?cs=srgb&dl=architecture-art-assorted-1742370.jpg&fm=jpg);
+      }
+
+
+      #contact {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?cs=srgb&dl=adult-blank-business-326576.jpg&fm=jpg);
+      }
+
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <div id="nav" class="nav">
+      <ul>
+        <li>  <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'logo.jpg' %}" height=30 width=30 style="margin-top: 8px;" />
+            Synergy Grievance System </a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'computerscience' %}">Computer Science</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li><a href="{% url 'mechanical' %}">Mechanical</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li><a href="{% url 'etc' %}">ETC</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li><a href="{% url 'civil' %}">Civil</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li><a href="{% url 'electric' %}">Electrical</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+            <li><a href="{% url 'faculty' %}">Faculty</a></li>
+            {% endif %}
+
+              {% if user.is_authenticated %}
+            <h5 align="right" class="blue">hello,{{request.user.username}}</h5>
+            {% endif %}
+      </ul>
+    </div>
+<div class="containers">
+
+  {% block content %}
+  {% endblock %}
+
+</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+  </body>
+
+</html>

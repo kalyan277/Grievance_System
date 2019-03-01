@@ -12,9 +12,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd!dom0bnas_$csrnmpd@gx==t6l_b++2#r@x=-7i=%^fs$brd!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['grievancesystem.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'grievancesystem.herokuapp.com']
+
 
 
 # Application definition

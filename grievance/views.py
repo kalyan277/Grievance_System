@@ -31,7 +31,7 @@ def log(request):
             grievance.position = request.POST['position']
             grievance.gender = request.POST['gender']
             grievance.save()
-            return render(request, 'grievance/log_complain.html',{'error':'You Have Successfully file a grievance'})
+            return render(request, 'grievance/home.html',{'error':'You Have Successfully file a grievance'})
         else:
             return render(request, 'grievance/log_complain.html',{'error':'All Field Are Required'})
     else:

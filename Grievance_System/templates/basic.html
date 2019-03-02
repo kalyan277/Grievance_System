@@ -15,6 +15,7 @@
       <script src="https://code.jquery.com/jquery-3.2.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel ="stylesheet">
+      <link rel="shortcut icon" href="{% static 'logo.jpg' %}" type="image/x-icon" />
     <style media="screen">
     @import "compass/css3";
 
@@ -201,14 +202,14 @@
 
         <header class="header">
 
-          <a href="{% url 'home' %}" class="header__icon" id="header__icon"></a>
-          <a href="{% url 'home' %}" class="header__logo">Synergy Grievance System</a>
+
             <!-- <a href="{% url 'home' %}" class="header__logo"><img src="{% static 'logo.jpg' %}" height=30 width=30 />Synergy Grievance System</a> -->
 
           <nav class="menu">
 
             <!-- <img src="{% static 'logo.jpg' %}" height=30 width=30 style="margin-top: 8px;" />
                  </a> -->
+                 <a href="{% url 'home' %}">Synergy Grievance System</a>
                 {% if user.is_authenticated %}
               <strong> <a href="" style="color:blue ;background-color: #fdff04;">hello,{{request.user.username}}</a></strong>
               {% endif %}

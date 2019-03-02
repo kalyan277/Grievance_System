@@ -9,7 +9,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
-<title>Synergy Grievance System</title>
+<title>Grievance Status</title>
 
 <style media="screen">
 
@@ -536,180 +536,25 @@ border-bottom-right-radius: 39px;
    </header>
 
 
+   <div class="containers">
 
-         <!-- <a href="{% url 'home' %}" class="header__logo"><img src="{% static 'logo.jpg' %}" height=30 width=30 />Synergy Grievance System</a> -->
+     {% block content %}
+     {% endblock %}
 
-      <nav class="menu">
-
-        <!-- <img src="{% static 'logo.jpg' %}" height=30 width=30 style="margin-top: 8px;" />
-             </a> -->
-
+   </div>
 
 
 
 
+       <!-- Bootstrap core JavaScript
+       ================================================== -->
+       <!-- Placed at the end of the document so the pages load faster -->
 
-      </nav>
-
-
-
-    </header>
-
-  <div id="home" class="bg">
-<span>
-    {% if error %}
-       <li class="error-message" style="
-    color: #185875; font-size: 30px; text-align: center; background-color:yellow;">{{ error}}</li>
-    {% endif %}
-    </span>
-
-    <div>
-      <h1>Home</h1>
-      <span>A long cherished dream of Shivani Educational and Charitable Trust, SYNERGY took shape in the year 1999.At a distance of 70kms. from the state capital Bhubaneswar on NH-55, well connected by Road & Rail, blessed with a salubrious climate, adorned with the historic Temple, and surrounded by a cluster of mines,mega steel, aluminium & power plants & has achieved to its credit 17 years of glorious track record.Synergy achieved the rare distinction of Accreditation by NAAC(UGC),Govt. of India approved by AICTE and affiliated to BPUT. more.</span>
-    </div>
-  </div>
-  <div id="about" class="bg">
-    <div>
-      <h1>Message Which Is To Be Convey</h1>
-      <span>
-My humble message to our students is to always keep in mind the golden rule that there is no substitute of hard work because sincere hard work is the mother of success and luck is only a distant relative.
-The creation of a pearl inside any oyster is a miracle in Nature. I sincerely hope that taking a cue from this lustrous evolution in Nature, our teaching, and non-teaching staff would nurture and transform our students in such a manner that they not only achieve excellence in technical education but also come up as excellent human being in life..</span>
-    </div>
-  </div>
-  <div id="contact" class="bg">
-    <div>
-      <h1>Contact us</h1>
-      <span>Campus Address (Synergy, Dhenkanal)
-Synergy Institute of Engineering & Technology
-Banamaliprasad, By the side of NH 55
-Dhenkanal, Odisha, India - 759 001
-Telefax: 91 6762 225905/226708
-Email: sietdkl@synergyinstitute.net</span>
-    </div>
-  </div>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
-  <footer>
-         <div class="footer-top">
-             <div class="containers">
-                 <div class="footer-day-time">
-                     <div class="row">
-                         <div class="col-md-8">
-                             <ul>
-                               <li><img src="{% static 'grievances.gif' %}" height=120  class="d-inline-block alighn-top" style ="text-align: center"/></li>
-                                 <li><h3 style ="text-align: center">Empowering The Right Of An Individual and Giving Justic In An Adeqate Amount Of Time.Which Will Bring Peace And Harmony.</h3></li>
+     </body>
 
-                             </ul>
-                         </div>
-
-                     </div>
-                 </div>
-                 <div class="row">
-                     <div class="col-md-4">
-                         <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information</h4>
-                         <ul class="address1">
-                             <li><i class="fa fa-map-marker"></i>NH 55, Dhenkanal, Odisha 759001
-    Synergy Institute of Engineering and Technology, Dhenkanal, Address</li>
-                             <li><i class="fa fa-envelope"></i><a href="mailto:#">kalyansingh277@gmail.com</a></li>
-                             <li><i class="fa fa-mobile" aria-hidden="true"></i> <a href="tel:7894739720">7894739720</a></li>
-                         </ul>
-                     </div>
-
-                 </div>
-             </div>
-         </div>
-         <div class="footer-bottom">
-             <div class="containers">
-                 <div class="row">
-                     <div class="col-sm-12">
-                         <p style ="text-align: center">INJUSTIC ANYWHERE IS TREAT TO JUSTIC {% now "Y" %}
-                         </p>
-                     </div>
-
-                 </div>
-             </div>
-         </div>
-     </footer>
-
-
-<!-- section footer -->
-<!-- <footer class="footer-section">
-        <div class="container">
-            <div class="footer-cta pt-5 pb-5">
-                <div class="row">
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="cta-text">
-                                <h4>Find us</h4>
-                                <span>NH 55, Dhenkanal, Odisha 759001
-Synergy Institute of Engineering and Technology, Dhenkanal, Address</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="fas fa-phone"></i>
-                            <div class="cta-text">
-                                <h4>Call us</h4>
-                                <span>7894739720</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="far fa-envelope-open"></i>
-                            <div class="cta-text">
-                                <h4>Mail us</h4>
-                                <span>kalyansingh277@gmail.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-content pt-5 pb-5">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 mb-50">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                            <img src="{% static 'grievances.gif' %}" height=90 width=500class="d-inline-block alighn-top"/>
-                            </div>
-                            <div class="footer-text">
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading text-left">
-                                <h3> &nbsp;&nbsp;LINKS</h3>
-                            </div>
-                               <div class="footer-widget-heading text-left">
-                                <div class="footer-menu">
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Terms</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 text-center ">
-                        <div class="copyright-text">
-                            <b><p></p><b>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
+   </html>

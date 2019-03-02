@@ -71,10 +71,10 @@ WSGI_APPLICATION = 'Grievance_System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddgphbqn5irif',
-        'USER':'yuvdkyhxoeskcf',
-        'PASSWORD':'be9d9a5a3199c744de91d2ccfd20ab8c8677322d204ed3ca4d970d3409e650c1',
-        'HOST':'ec2-54-235-134-25.compute-1.amazonaws.com',
+        'NAME': 'grievance',
+        'USER':'postgres',
+        'PASSWORD':'techlab',
+        'HOST':'localhost',
         'PORT':'5432',
     }
 }

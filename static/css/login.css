@@ -3,14 +3,15 @@
 ***************/
 
 .box {
- width: 330px;
- padding: 40px;
+ width: 325px;
+ padding: 20px;
  position: absolute;
  top: 50%;
  left: 50%;
  transform: translate(-50%,-50%);
  background: #191919;
  border: none;
+ margin-top: 90px;
  border-radius: 25px;
  text-align: center;
 }
@@ -23,7 +24,7 @@ h1{
 /**************
 Input Fields
 ***************/
-#username, #password, #email, #password1, #phone{
+#username, #pass, #email, #password1, #phone{
  border: 2px solid #0097e6;
  background: none;
  display: block;
@@ -68,123 +69,77 @@ Submit Button
  background: #2ecc71;
 }
 
-error{
-  color: white
+
+body{
+background-color:pink;
+}
+.container{
+  width:450px;
+  overflow:hidden;
 }
 
-ul {
-    margin: 0px;
-    padding: 0px;
-}
-.footer-section {
-  background: #151414;
-  position: relative;
-}
-.footer-cta {
-  border-bottom: 1px solid #373636;
-}
-.single-cta i {
-  color: #ff5e14;
-  font-size: 30px;
-  float: left;
-  margin-top: 8px;
-}
-.cta-text {
-  padding-left: 15px;
-  display: inline-block;
-}
-.cta-text h4 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-.cta-text span {
-  color: #757575;
-  font-size: 15px;
-}
-.footer-content {
-  position: relative;
-  z-index: 2;
-}
-.footer-pattern img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 330px;
-  background-size: cover;
-  background-position: 100% 100%;
-}
-.footer-logo {
-  margin-bottom: 30px;
-}
-.footer-logo img {
-    max-width: 200px;
-}
-.footer-text p {
-  margin-bottom: 14px;
-  font-size: 14px;
-      color: #7e7e7e;
-  line-height: 70px;
+svg{
+  // background:pink;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  z-index:2;
+  opacity:0.5;
 }
 
-.footer-widget-heading h3 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  position: relative;
+.overlay{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  z-index:3;
+  opacity:1;
+  mix-blend-mode:multiply;
+  background: #9236ff;
+background: -moz-linear-gradient(-45deg, #9236ff 0%, #f763c6 33%, #ff9292 66%, #fff7e1 100%);
+background: -webkit-linear-gradient(-45deg, #9236ff 0%,#f763c6 33%,#ff9292 66%,#fff7e1 100%);
+background: linear-gradient(135deg, #9236ff 0%,#f763c6 33%,#ff9292 66%,#fff7e1 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9236ff', endColorstr='#fff7e1',GradientType=1 );
 }
-.footer-widget-heading h3::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  height: 2px;
-  width: 50px;
-  background: #ff5e14;
-}
-.footer-widget ul li {
-  display: inline-block;
-  float: left;
-  width: 50%;
-  margin-bottom: 12px;
-}
-.footer-widget ul li a:hover{
-  color: #ff5e14;
-}
-.footer-widget ul li a {
-  color: #878787;
-  text-transform: capitalize;
+.cls-1, .cls-4{
+  animation: r-rotate 2s  infinite alternate;
+  transform-origin:100% 100%;
 }
 
-.copyright-text p {
-  margin: 0;
-  font-size: 14px;
-  color: #878787;
-}
-.copyright-text p a{
-  color: #ff5e14;
-}
-.footer-menu li {
-  display: inline-block;
-  margin-left: 20px;
-}
-.footer-menu li:hover a{
-  color: #ff5e14;
-}
-.footer-menu li a {
-  font-size: 14px;
-  color: #878787;
+.cls-2, .cls-3{
+  animation: l-rotate 2s  infinite alternate;
+  transform-origin:100% 0%;
 }
 
+.cls-2, .cls-4{
+  animation-delay:0.5s;
+}
 
-.large-header {
-   position: relative;
-   width: 100%;
-   background: #111;
-   overflow: hidden;
-   background-size: cover;
-   background-position: center center;
-   z-index: 1;
+.l{
+  stroke:  #F72CAA;
+  fill: #F72CAA;
+  animation: l-rotate 2s alternate infinite;
+  transform-origin:100% 0%
+}
+
+@keyframes r-rotate{
+  from{
+    transform: rotate(270deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+@keyframes l-rotate{
+  from{
+    transform: rotate(270deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
 }

@@ -1,16 +1,221 @@
 {% load staticfiles %}
 <head>
     <link rel="shortcut icon" href="{% static 'logo.jpg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </head>
+
+  <style media="screen">
+
+    @import "compass/css3";
+
+  @import "compass";
+
+  /* VARIABLES */
+  $header-bg: #3f51b5;
+  $menu-width: 250px!default;
+
+  /* BASE */
+
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav {
+    background-color: #efefef;
+    height: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px #000;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.15s ease-out, border-radius 0.15s ease-out;
+  }
+
+  .nav.active {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    border-radius: 8px 5px;
+  }
+
+
+  /* HEADER */
+  .header {
+    background-color: #efefef;
+    height: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px #000;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.15s ease-out, border-radius 0.15s ease-out;
+
+
+  }
+
+  .header__logo {
+    font-weight: 700;
+    padding: 0 25px;
+    float: left;
+  }
+
+  /* MENU */
+  .menu {
+    float: left;
+    text-align: center;
+    margin-left: 40px;
+
+    a {
+      padding: 0 10px;
+    }
+
+    a:hover {
+      color: #c5cae9;
+    }
+  }
+
+  /* RESPONSIVE */
+  @media only screen and (max-width: 768px) {
+    .site-pusher,
+    .site-container {
+      height: 100%;
+    }
+
+    .site-container {
+      overflow: hidden;
+    }
+
+    .site-pusher {
+      @include transition-duration(0.3s);
+      @include transform(translateX(0px));
+    }
+
+    .site-content {
+      position: absolute;
+      top: 66px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      padding-top: 0;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .header {
+      position: static;
+    }
+
+    .header__icon {
+      position: relative;
+      display: block;
+      float: left;
+      width: 50px;
+      height: 66px;
+
+      cursor: pointer;
+
+
+
+
+  .nav-item > a:hover
+  {
+  background-color:green;
+  opacity:0.8;
+  padding:18px;
+  border-top-left-radius: 39px;
+  border-bottom-right-radius: 39px;
+
+  }
+
+
+  </style>
+
+
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<header class="header">
 
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a href="{% url 'home' %}" class="navbar-brand""><img src="{% static 'logo.jpg' %}" height=30 width=30  style="margin-top:-15px;"/>Synergy Grievance System</a>
+
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+           <ul class="navbar-nav ml-auto">
+             <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              {% if user.is_authenticated %}
+                       <a class="nav-link" href="{% url 'log' %}">File Complain</a>
+                       {% endif %}
+            </li>
+            <li class="nav-item">
+              {% if user.is_staff %}
+              <a class="nav-link" href="{% url 'view' %}">View Grievance</a>
+               {% endif %}
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'viewstatus' %}">Status</a>
+              {% endif %}
+            </li>
+            <li class="nav-item">
+              {% if user.is_superuser %}
+              <a class="nav-link" href="{% url 'resolve' %}">Resolve Grievance</a>
+              {% endif %}
+            </li>
+            <li class="nav-item">  {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'statistic' %}">Statistic</a>
+            {% endif %}</li>
+
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+               <a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+               {% endif %}
+            </li>
+          <li class="nav-item">
+             {% if user.is_authenticated %}
+                 <a  class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+              </li>
+                 <form id="logout" action="{% url 'logout' %}"method="post">
+                   {% csrf_token %}
+                   <input type="hidden"/>
+                 </form>
+
+                     {% else %}
+                     <li class="nav-item">
+                     <a  class="nav-link" href="{% url 'signup' %}"> Sign Up</a>
+                     </li>
+                    <li class="nav-item">
+                     <a  class="nav-link" href="{% url 'login' %}" >Login</a>
+                     </li>
+                     {% endif %}
+
+
+
+                </ul>
+       </nav>
+
+
+
+
+</header>
 <div class="row shop-tracking-status">
 
     <div class="col-md-12">
+
         <div class="well">
 
             <h4>Your's Grievance status:</h4>
@@ -66,7 +271,8 @@
               <div id="dyna" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                 <span id="current-progress"></span>
               </div>
-            </div>
+                </div>
+
 
 
 

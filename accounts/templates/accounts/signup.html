@@ -104,7 +104,7 @@
     <h1>Sign up</h1>
     {% if error %}
        <h3 class="error-message" style="
-    color: white; font-size: 16px">{{ error}}</h3>
+    color: red; font-size: 16px">{{ error}}</h3>
     {% endif %}
     {% csrf_token %}
     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off"  minlength="5" maxlength="25">
@@ -114,7 +114,7 @@
     <input type="password" name="pass" id="pass" placeholder="Confirm Password" autocomplete="off" >
     <input type="submit" id="submit" value="Sign UP">
     <br>
-    <a href="{% url 'home' %}"><h6  style="color: blue">Back To The Home Screen!!</h6></a>
+    <a href="{% url 'home' %}"><h6  style="color: white">Back To The Home Screen!!</h6></a>
   </form>
   </div>
 </div>

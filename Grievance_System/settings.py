@@ -140,20 +140,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-#EMAIL_HOST ='smpt.gmail.com'
-#EMAIL_HOST_USER ='kalyansingh277@gmail.com'
-#EMAIL_HOST_PASSWORD = 'Timesofindia1234'
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#ACCOUNT_EMAIL_VERIFICATION = 'none'
-# SEND_GRID_API_KEY = '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'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = 'abhijeet2812'
-# EMAIL_HOST_PASSWORD = 'Timesofindia1234'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'kalyansingh277'
-EMAIL_HOST_PASSWORD = '277kalyan'
+EMAIL_HOST_PASSWORD = 'Timesofindia1234'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

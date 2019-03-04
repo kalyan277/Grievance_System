@@ -73,6 +73,7 @@
       .nav > ul > li {
         float: left;
         display: inline-block;
+        margin: 2px;
       }
 
       .nav > ul > li > a {
@@ -106,6 +107,7 @@
         justify-content: center;
         align-items: center;
       }
+
 
       .bg > div {
         color: white;
@@ -141,28 +143,30 @@
         <img src="{% static 'logo.jpg' %}" height=30 width=30 style="margin-top: 8px;" />
             Synergy Grievance System </a></li>
             {% if user.is_superuser %}
-            <li><a href="{% url 'computerscience' %}">Computer Science</a></li>
+            <li> <button class="btn btn-success" onclick="window.location = '{% url 'computerscience' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">Computer Science</i></button></li>
             {% endif %}
             {% if user.is_superuser %}
-            <li><a href="{% url 'mechanical' %}">Mechanical</a></li>
+            <li><button class="btn btn-success" onclick="window.location = '{% url 'mechanical' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">Mechanical</i></button></li>
             {% endif %}
             {% if user.is_superuser %}
-            <li><a href="{% url 'etc' %}">ETC</a></li>
+            <li><button class="btn btn-success" onclick="window.location = '{% url 'etc' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">ETC</i></button></li>
             {% endif %}
             {% if user.is_superuser %}
-            <li><a href="{% url 'civil' %}">Civil</a></li>
+            <li> <button class="btn btn-success" onclick="window.location = '{% url 'civil' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">Civil</i></button></li>
             {% endif %}
             {% if user.is_superuser %}
-            <li><a href="{% url 'electric' %}">Electrical</a></li>
+            <li><button class="btn btn-success" onclick="window.location = '{% url 'electric' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">Electrical</i></button></li>
             {% endif %}
             {% if user.is_superuser %}
-            <li><a href="{% url 'faculty' %}">Faculty</a></li>
+            <li><button class="btn btn-success" onclick="window.location = '{% url 'faculty' %}';"style="margin-top:5px;padding:8px"><i class="fa fa-check">Faculty</i></button></li>
             {% endif %}
 
               {% if user.is_authenticated %}
             <h5 align="right" class="blue">hello,{{request.user.username}}</h5>
             {% endif %}
+
       </ul>
+
     </div>
 <div class="containers">
 

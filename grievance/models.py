@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Grievance(models.Model):
     Name = models.CharField(max_length=60)
     title = models.CharField(max_length=255)
-    re_date = models.DateTimeField()
+    re_date = models.DateTimeField(verbose_name='Complain Date')
     body = models.TextField()
     verifeedback = models.TextField( blank=True, null=True)
     type = models.CharField(max_length=20)
@@ -16,8 +16,8 @@ class Grievance(models.Model):
     verified = models.CharField(max_length=25 ,blank=True, null=True)
     user = models.CharField(max_length=25 ,blank=True, null=True)
     gender = models.CharField(max_length=10 ,blank=True, null=True)
-    r_date = models.DateTimeField(blank=True, null=True)
-    v_date = models.DateTimeField(blank=True, null=True)
+    r_date = models.DateTimeField(blank=True, null=True,verbose_name='Remidial Date')
+    v_date = models.DateTimeField(blank=True, null=True,verbose_name='Verified Date')
     def __str__(self):
         return self.title
 

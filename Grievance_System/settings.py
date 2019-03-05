@@ -151,8 +151,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'kalyansingh277'
-EMAIL_HOST_PASSWORD = 'Timesofindia1234'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
